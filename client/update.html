@@ -1,0 +1,24 @@
+<html>
+<head>
+    <script type="text/javascript" src="libs/vue.js"></script><script type="text/javascript" src="libs/axios.js"></script>
+</head>
+<body>
+<a href="index.html">Acasă</a>
+<div id="update">
+    <p>Copertă: <input type="text" v-model="book.cover"></p>
+    <p>Titlu: <input type="text" v-model="book.title"></p>
+    <p>Autor: <input type="text" v-model="book.author"></p>
+    <p>Editură: <input type="text" v-model="book.brand"></p>
+    <p>Preț (în lei): <input type="text" v-model="book.price"></p>
+    <p>Gen: <input type="text" v-model="book.genre"></p>
+    <p>Subgen: <input type="text" v-model="book.subgenre"></p>
+    <p>Limbă: <input type="text" v-model="book.language"></p>
+    <p>Format: <input type="text" v-model="book.format"></p>
+    <p>ISBN-ISSN: <input type="text" v-model="book.isbn"></p>
+    <p>Descriere: <input type="text" v-model="book.description"></p>
+    <button v-on:click="update(book.id)">Salvează</button>
+    <p>{{message}}</p>
+</div>
+<script src="src/update.js"></script>
+</body>
+</html>

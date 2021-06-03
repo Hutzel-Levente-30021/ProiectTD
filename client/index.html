@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta content="utf-8" http-equiv="encoding" />
+  <title>Biblioteca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/vue-material.css" />
+  <script type="text/javascript" src="libs/vue.js"></script>
+  <script type="text/javascript" src="libs/vue-material.js"></script>
+  <script type="text/javascript" src="libs/axios.js"></script>
+  <script type="text/javascript" src="src/book-service.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <div class="title">Cărți</div>
+    <p style="text-align: center" v-if="books.length == 0">Nicio carte nu se află</p>
+
+    <ul class="user-list" v-if="books.length > 0">
+      <li>
+        <div class="user-row-header">
+          <div class="user-name">Copertă</div>
+          <div class="user-name">Titlu</div>
+          <div class="user-city">Autor</div>
+          <div class="user-city">Editură</div>
+          <div class="user-city">Preț</div>
+          <div class="user-city">Opțiuni</div>
+          <a class="" :href="'add.html?'">Adaugă o carte</a>
+        </div>
+      </li>
+
+      <li v-for="book in books">
+        <div class="">
+          <span class="user-city"><img :src="book.cover"></span>
+          <a class="user-city" :href="'details.html?id='+book.id">{{ book.title }}</a>
+          <span class="user-city"><i>{{ book.author }}</i></span>
+          <span class="user-city"><i>{{ book.brand }}</i></span>
+          <span class="user-city"><i>{{ book.price }} lei</i></span>
+          <button v-on:click="deleteBook(book.id)">Șterge</button>
+          <a :href="'update.html?id='+book.id" target="_self">Modifică</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script src="src/app.js"></script>
+</body>
+
+</html>
